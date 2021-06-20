@@ -9,7 +9,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Tambah Kategori</h1>
+          <h1 class="m-0">Edit Kategori</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -29,16 +29,17 @@
             <h2 class="card-title">Form Edit</h2>
         </div>
         <div class="card-body">
-            <form action="{{ route('category.store') }}" method="post">
+            <form action="{{ route('category.update', $category->id) }}" method="post">
                 @csrf
+                @method('PUT')
                 <table class="table table-bordered">
                     <tr>
                         <td>Nama Kategori:</td>
-                        <td><input type="text" class="form-control" name="nama_kategori"></td>
+                        <td><input type="text" value="{{ $category->nama_kategori }}" class="form-control" name="nama_kategori"></td>
                     </tr>
                     <tr>
                         <td>Keterangan:</td>
-                        <td><input type="text" class="form-control" name="description"></td>
+                        <td><input type="text" value="{{ $category->description }}" class="form-control" name="description"></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>

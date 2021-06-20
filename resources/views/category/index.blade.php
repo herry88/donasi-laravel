@@ -55,10 +55,10 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $ct->nama_kategori}}</td>
                         <td>{{ $ct->description }}</td>
-                        <td><a href="{{ route('category.edit', $ct->id) }}" class="btn btn-warning text-white">Edit</a> |
-
-                            <form action="#" method="post">
+                        <td><form action="{{ route('category.destroy', $ct->id) }}" method="post">
+                            <a href="{{ route('category.edit', $ct->id) }}" class="btn btn-warning text-white">Edit</a>
                                 @csrf
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Hapus</button>
                             </form>
                         </td>
